@@ -40,4 +40,7 @@ class FileManager:
 
     def readFile(self):
         file = open(self.document, "r")
-        return file.read()
+        lines = []
+        for line in file.readline()
+            lines.append(line)
+        return line
