@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7706e0e2-81c1-4305-a188-df62999c5a99" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/saveFile.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ErrorDisplay.html" beforeDir="false" afterPath="$PROJECT_DIR$/ErrorDisplay.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlaskFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlaskFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saveFile.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/FileManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +44,7 @@
           <entry key="html" value="243" />
           <entry key="js" value="46" />
           <entry key="json" value="4" />
-          <entry key="py" value="6566" />
+          <entry key="py" value="6569" />
           <entry key="txt" value="66" />
         </counts>
       </usages-collector>
@@ -57,7 +54,7 @@
           <entry key="JSON" value="4" />
           <entry key="JavaScript" value="46" />
           <entry key="PLAIN_TEXT" value="66" />
-          <entry key="Python" value="6566" />
+          <entry key="Python" value="6569" />
         </counts>
       </usages-collector>
     </session>
@@ -67,23 +64,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FileManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="50" column="76" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="76" />
+            <state relative-caret-position="306">
+              <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
               <folding>
-                <marker date="1536053793858" expanded="true" signature="143:178" ph="..." />
-                <marker date="1536053793858" expanded="true" signature="442:758" ph="..." />
+                <marker date="1536074763055" expanded="true" signature="143:178" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="18" selection-start-column="18" selection-end-column="18" />
+            <state relative-caret-position="-102">
+              <caret line="4" column="52" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="52" />
               <folding>
-                <marker date="1536058185361" expanded="true" signature="235:236" ph="..." />
+                <marker date="1536074762687" expanded="true" signature="400:401" ph="..." />
               </folding>
             </state>
           </provider>
@@ -103,7 +99,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/saveFile.json">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -137,14 +133,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/FileManager.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/Javascript.js" />
         <option value="$PROJECT_DIR$/w3.css" />
         <option value="$PROJECT_DIR$/ErrorDisplay.html" />
         <option value="$PROJECT_DIR$/saveFile.txt" />
         <option value="$PROJECT_DIR$/saveFile.json" />
         <option value="$PROJECT_DIR$/FlaskFile.py" />
+        <option value="$PROJECT_DIR$/FileManager.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -335,27 +331,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="18" selection-start-column="18" selection-end-column="18" />
-          <folding>
-            <marker date="1536058185361" expanded="true" signature="235:236" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FileManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="50" column="76" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="76" />
-          <folding>
-            <marker date="1536053793858" expanded="true" signature="143:178" ph="..." />
-            <marker date="1536053793858" expanded="true" signature="442:758" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ErrorDisplay.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -379,6 +354,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="33" selection-start-column="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FileManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding>
+            <marker date="1536074763055" expanded="true" signature="143:178" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102">
+          <caret line="4" column="52" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="52" />
+          <folding>
+            <marker date="1536074762687" expanded="true" signature="400:401" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
