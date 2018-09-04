@@ -16,7 +16,7 @@ class WordFileManager:
                 rows.append([cell.text for cell in row.cells])
         return rows
 
-    def getErrorRows(self):
+    def getRedRows(self):
         wordDoc = Document(self.document)
         rows = []
         for table in wordDoc.tables:
@@ -40,7 +40,4 @@ class FileManager:
 
     def readFile(self):
         file = open(self.document, "r")
-        lines = []
-        for line in file.readline()
-            lines.append(line)
-        return line
+        return file.readlines()
