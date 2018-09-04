@@ -1,12 +1,14 @@
+# This script creates a web server using the Flask framework and gets the information
+# from mapErrors.py and displays it to the user in a neat and clean UI utilising the W3.css framework
+# Moreover, there is also utility for the end user to input and store details of the errors that have
+# occurred in a .json file for future references
 from flask import Flask, request, redirect
-from FileManager import *
-from main import *
+from mapErrors import *
 import json
 
 app = Flask(__name__)
 wordPath = './Developer Report/Test_DeveloperReview_with Bug.docx'
 sourcePath = './Source Code/modified_sample_code.c'
-f = open('./ErrorDisplay.html', "r")
 
 @app.route('/')
 def index():
@@ -17,11 +19,10 @@ def index():
     print(inputValues)
     dictionary = getDictionaryOfErrorToReport(wordPath, sourcePath)
     html = "<html><body style = 'background-color: #151616; color: #ddd;'>"
-    html += "<title>Title</title><link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>" \
+    html += "<title>Reporter Tool</title><link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>" \
             "<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato'>" \
             "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>"\
             "<style> body,h1,h2,h3,h4,h5,h6 {font-family: 'Lato', sans-serif;} </style>"
-    html += f.read()
 
     html += "<div class = 'w3-top w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity'>Reporter Tool</div><br><br>"
     html += "<div class='w3-animate-zoom'>"
@@ -36,9 +37,9 @@ def index():
         c = 0
         for i in v:
             if c == 1:
-                html += "<div class='w3-col w3-text-red' style='width:14.28%'>" + i + "</div>"
+                html += "<div class='w3-col w3-text-red w3-padding' style='width:14.28%'>" + i + "</div>"
             else:
-                html += "<div class='w3-col' style='width:14.28%'>" + i + "</div>"
+                html += "<div class='w3-col w3-padding' style='width:14.28%'>" + i + "</div>"
             c += 1
         html += "</div>"
         html += "<div class = 'w3-row w3-padding'>Error Fix: </div>"

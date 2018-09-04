@@ -1,5 +1,6 @@
+# This script creates a dictionary of the error codes in the C program and maps them
+# to the ones present in the report document
 import FileManager
-
 
 def getDictionaryOfErrorToReport(wordPath, sourcePath):
     word_file = FileManager.WordFileManager(wordPath)

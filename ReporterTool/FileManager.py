@@ -1,3 +1,4 @@
+# Handles all the file reading from .docx and regular files
 from docx import Document
 
 class WordFileManager:
