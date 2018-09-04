@@ -7,12 +7,16 @@ import logging
 import matplotlib.pyplot as plt
 import json
 from sys import argv
+import os
 
 logging.basicConfig(filename='scraped_data.json',level=logging.INFO,format='%(message)s')
 
 def get_asins():
+    '''Gets the ASIN values from the amazon frontpage of the search '''
     words = input('enter the term to search for:')
-    web = webdriver.Chrome('/Users/ssvighnesh/chromedriver')  #replace this with an absolute path of a local driver that is downloaded from selenium website
+    path = os.getcwd()+'/chromedriver'
+    print(path)
+    web = webdriver.Chrome(path)  #replace this with an absolute path of a local driver that is downloaded from selenium website
     keywords = '+'.join(words.strip().split())
     web.get('https://www.amazon.in/s?url=search-alias%3Daps&field-keywords=' + keywords)
     page= web.page_source

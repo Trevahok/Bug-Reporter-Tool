@@ -8,6 +8,7 @@ import logging
 from bs4 import BeautifulSoup as bs
 
 def AmzonParser(url):
+    '''requests a webpaege using urllib and parses it to extract data and returns it as json'''
     headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36'}
     try:
         req = urllib.request.Request(url,headers=headers)
@@ -49,6 +50,7 @@ def AmzonParser(url):
             print(e)
  
 def single_process(AsinNo):
+    ''' the single process that is going to threaded. '''
         url = "http://www.amazon.in/dp/"+AsinNo
         print( "Processing: "+url)
         extracted_data=AmzonParser(url)
@@ -56,6 +58,7 @@ def single_process(AsinNo):
         logging.info(',')
 
 def process_handler(AsinList):
+    '''handles the creation and deletion of threads'''
     thread_list =[]
     for no in AsinList:
         t= Thread(target=single_process, args=[no])
