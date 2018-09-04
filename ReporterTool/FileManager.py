@@ -16,6 +16,17 @@ class WordFileManager:
                 rows.append([cell.text for cell in row.cells])
         return rows
 
+    def getErrorRows(self):
+        wordDoc = Document(self.document)
+        rows = []
+        for table in wordDoc.tables:
+            for row in table.rows:
+                for cell in row.cells:
+                    if("Error:" in cell.text):
+                        rows.append([cell.text for cell in row.cells])
+
+        return rows
+
     def readText(self):
         wordDoc = Document(self.document)
         paras = []
