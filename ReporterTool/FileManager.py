@@ -10,15 +10,17 @@ class WordFileManager:
 
     def readCells(self):
         wordDoc = Document(self.document)
-
         rows = []
-        cells = []
-
         for table in wordDoc.tables:
             for row in table.rows:
                 rows.append([cell.text for cell in row.cells])
-
         return rows
+
+    def readText(self):
+        wordDoc = Document(self.document)
+        paras = []
+        paras.append([p.text for p in wordDoc.paragraphs])
+        return paras
 
 class FileManager:
 
