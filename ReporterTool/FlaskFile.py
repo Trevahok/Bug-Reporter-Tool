@@ -1,30 +1,36 @@
 from flask import Flask, request, redirect
 from FileManager import *
 from main import *
+import json
 
 app = Flask(__name__)
 wordPath = './Developer Report/Test_DeveloperReview_with Bug.docx'
 sourcePath = './Source Code/modified_sample_code.c'
 f = open('./ErrorDisplay.html', "r")
 
-file = open("saveFile.txt", "r")
-inputValues = {}
-for i in file.readlines():
-    i = i.split(" ", 1)
-    inputValues[i[0]] = i[1]
-
-print(inputValues)
 @app.route('/')
 def index():
+    inputValues = {}
+    file = open("saveFile.json","r")
+    data = file.read()
+    inputValues = json.loads(data)
+    print(inputValues)
     dictionary = getDictionaryOfErrorToReport(wordPath, sourcePath)
-    html = f.read()
+    html = "<html><body style = 'background-color: #151616; color: #ddd;'>"
+    html += "<title>Title</title><link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>" \
+            "<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato'>" \
+            "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>"\
+            "<style> body,h1,h2,h3,h4,h5,h6 {font-family: 'Lato', sans-serif;} </style>"
+    html += f.read()
 
+    html += "<div class = 'w3-top w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity'>Reporter Tool</div><br><br>"
+    html += "<div class='w3-animate-zoom'>"
     for k, v in dictionary.items():
         err = k[k.lower().find("red error id") + len("red error id"):-3]
         err = err.strip()
 
-        html += "<br><div class='w3-container w3-content w3-card-4 w3-white' style='padding:0'>"
-        html += "<div class = 'w3-row w3-blue w3-border w3-padding'>" + "Defect ID: " + err + "</div>"
+        html += "<br><div class='w3-container w3-content w3-card-4 w3-white w3-animate-opacity' style='padding:0'>"
+        html += "<div class = 'w3-row w3-blue w3-padding'>" + "Defect ID: " + err + "</div>"
         html += "<div class = 'w3-row w3-padding'>Error Description: </div>"
         html += "<div class = 'w3-row w3-grey w3-padding'>"
         c = 0
@@ -43,26 +49,30 @@ def index():
 
         if err in inputValues.keys():
             print(inputValues[err])
-            html += "<input type='text' class='w3-input w3-border w3-col m910 w3-animate-input' style='width:30%;max-width:80%;' name='comments' placeholder = 'Error information' value='" + inputValues[err] + "'>"
+            html += "<input type='text' class='w3-input w3-border w3-col m9 w3-animate-input' style='width:30%;max-width:80%;' name='comments' placeholder = 'Error information' value='" + inputValues[err] + "'>"
         else:
-            print(inputValues)
-            html += "<input type='text' class='w3-input w3-border w3-col m910 w3-animate-input' style='width:30%;max-width:80%;' name='comments' placeholder = 'Error information'>"
+            html += "<input type='text' class='w3-input w3-border w3-col m9 w3-animate-input' style='width:30%;max-width:80%;' name='comments' placeholder = 'Error information'>"
         html += "<button class='w3-btn w3-black w3-right w3-col m2' name='button' value='"+ err +"'>Submit</button>" \
                 "</form></div>"
         html += "</div><br>"
 
-    html += "</body></html>"
+    html += "</div></body></html>"
     return html
 
 @app.route('/postcomments/', methods = ['POST'])
 def postcomments():
     commentText = request.form['comments']
     errorID = request.form['button']
-    file = open("saveFile.txt", "a")
-    writeString = errorID + " " + commentText
-    file.write(writeString)
-    file.write("\n")
-    return redirect("/", code=302)
+    diction = {}
+    with open('saveFile.json' , 'r+') as file:
+        data= file.read()
+        diction = json.loads(data)
+        diction[errorID] = commentText
+
+    with open('saveFile.json', 'w') as file:
+        file.write(json.dumps(diction))
+
+    return redirect("/")
 
 if __name__ == "__main__":
     app.run()
