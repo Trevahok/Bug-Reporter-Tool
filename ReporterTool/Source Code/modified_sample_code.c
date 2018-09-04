@@ -54,7 +54,7 @@ void main()
 
 void entry_point(void)
 {
-	int a = 1; /* Red Error ID 11*/
+	int a = 1; /* Red Error ID 11 */
 	
 	printf("%d\n", a);
 	
@@ -62,14 +62,14 @@ void entry_point(void)
 
 void entry_point_1(void)
 {
-	int arr[10] = {0,0,0,0,0,0,0,0,0,0};
+	int arr[10] = {0,0,0,0,0,0,0,0,0,0}; /* Red Error ID 13 */
 	
 	printf("%d\n", arr[9]);
 }
 
 void entry_point_2(void)
 {
-	//char a = (char)((0xFFFFFFFFFF) & 0xff);
+	//char a = (char)((0xFFFFFFFFFF) & 0xff); /* Red Error ID 16 */
 	
 }
 

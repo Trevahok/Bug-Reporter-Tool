@@ -40,7 +40,15 @@ class FileManager:
 
     def readFile(self):
         file = open(self.document, "r")
-        lines = []
-        for line in file.readline()
-            lines.append(line)
-        return line
+        return file.readlines()
+
+    def getErrorID(self, errorCode):
+        file = open(self.document, "r")
+        source = self.readFile()
+        errorID = {}
+        for line in source:
+            if (errorCode in line.lower()):
+                err = line[line.lower().find(errorCode) + len(errorCode):-3]
+                err = err.strip()
+                errorID.update({line:err})
+        return errorID
