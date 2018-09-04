@@ -1,9 +1,16 @@
 import FileManager
+<<<<<<< HEAD
+import re
 
 def getDictionaryOfErrorToReport(wordPath, sourcePath):
     word_file = FileManager.WordFileManager(wordPath)
     source = FileManager.FileManager(sourcePath)
 
+source = FileManager.FileManager('./Source Code/modified_sample_code.c').readFile()
+for line in source:
+    if "red error id" in line.lower():
+        print(line)
+# text = re.findall(r'\/\*.*\*\/', source )
     sourceErrorIDs = source.getErrorID("red error id")
 
     print()
