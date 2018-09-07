@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporter Tool</title>
+
+    <link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+</head>
+<body style = 'background-color: #151616; color: #ddd;'>
+
+    <style> body,h1,h2,h3,h4,h5,h6 {font-family: 'Lato', sans-serif;} </style>
+
+    <div class = 'w3-top w3-padding-large w3-black  w3-animate-opacity w3-bar'>
+        <div class="w3-bar-item w3-xlarge w3-wide">Reporter Tool</div>
+        <a href="/" class="w3-bar-item w3-button">New Report</a>
+    </div>
+    <br><br><br><br>
+    <div class='w3-animate-zoom'>
+
+        <br>
+        {% for k, v in dictionary.items(): %}
+        {% set err = k[k.lower().find(errorCode) + errorCode|length :-3] %}
+        {% set err = err.strip() %}
+        <div class = 'w3-container w3-content w3-card-4 w3-white w3-animate-opacity' style='padding:0'>
+            <div class = 'w3-row w3-blue w3-padding'>Defect ID: {{ err }}</div>
+            <div class = 'w3-row w3-padding'>Error Description: </div>
+            <div class = 'w3-row w3-light-grey w3-padding'>
+                {% for i in v: %}
+                    {% if loop.index == 2: %}
+                        <div class='w3-col w3-padding w3-text-red' style='width:14.28%'>{{ i }}</div>
+                    {% else: %}
+                        <div class='w3-col w3-padding' style='width:14.28%'>{{ i }}</div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class = 'w3-row w3-padding'>Error Fix: </div>
+            <div class = 'w3-row w3-light-grey w3-padding'>{{ k }}</div>
+            <div class ='w3-row w3-padding'>Root Cause: </div>
+            <div class = 'w3-row w3-light-grey w3-padding'>
+                <form method = 'POST' action = '/postcomments/'>
+                    {% if err in inputValues.keys(): %}
+                        <input type='text' class='w3-input w3-border w3-col m9 w3-animate-input' style='width:30%;max-width:80%;' name='comments' placeholder = 'Error information' value = '{{ inputValues[err] }}'>
+                    {% else: %}
+                        <input type='text' class='w3-input w3-border w3-col m9 w3-animate-input' style='width:30%;max-width:80%;' name='comments' placeholder = 'Error information'>
+                    {% endif %}
+                    <button class='w3-btn w3-black w3-right w3-col m2' name='button' value='{{ err }}'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+    </div>
+</body>
+</html>

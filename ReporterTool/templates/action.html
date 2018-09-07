@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporter Tool</title>
+
+    <link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+</head>
+<body style = 'background-color: #151616; color: #ddd;'>
+
+    <style> body,h1,h2,h3,h4,h5,h6 {font-family: 'Lato', sans-serif;} </style>
+
+    <div class = 'w3-top w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity'>Reporter Tool</div>
+    <br><br><br><br>
+    <div class='w3-animate-zoom w3-container w3-content w3-padding' style='top:50%;'>
+
+        <form method="POST" action="/upload" enctype="multipart/form-data">
+            Source Code:
+            <input type="file" class="w3-input w3-border w3-button" style='width:50%' name="sourceFile">
+            Word Document:
+            <input type="file" class="w3-input w3-border w3-button" style='width:50%' name="wordFile">
+            <br>
+            <button class="w3-btn w3-blue">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
