@@ -2,8 +2,7 @@
 # from mapErrors.py and displays it to the user in a neat and clean UI utilising the W3.css framework
 # Moreover, there is also utility for the end user to input and store details of the errors that have
 # occurred in a .json file for future references
-from flask import Flask, request, redirect, render_template, url_for
-from flask import send_from_directory
+from flask import Flask, request, redirect, render_template
 from mapErrors import *
 import json, os
 from werkzeug.utils import secure_filename
